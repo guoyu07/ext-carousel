@@ -1,5 +1,7 @@
 <?php
 
+namespace Notadd\Carousel\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**

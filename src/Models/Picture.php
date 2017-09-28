@@ -7,6 +7,8 @@
  * @datetime: 17-9-28 下午5:47
  */
 
+namespace Notadd\Carousel\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 
