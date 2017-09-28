@@ -22,8 +22,11 @@ class Picture extends Model
         'user_id',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function group()
     {
-        return $this->belongsTo('Notadd\Carousel\Models\Group');
+        return $this->belongsTo(Group::class);
     }
 }
