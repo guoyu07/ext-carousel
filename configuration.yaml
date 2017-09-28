@@ -1,0 +1,22 @@
+name: 轮播图插件
+identification: notadd/ext-carousel
+description: 轮播图管理插件
+author:
+    - Hollydan
+    - 2642956839@qq.com
+version: 0.1.0
+provider: Notadd\Carousel\Extension
+assets:
+    scripts:
+#        - assets/extensions/notadd/mall-gallery/js/extension.min.js
+    stylesheets:
+#        - assets/extensions/notadd/mall-gallery/css/extension.min.css
+csrf:
+    - 'api/carousel*'
+events:
+    subscribes:
+        - Notadd\Carousel\Listeners\RouteRegister
+migrations:
+    - databases/migrations
+publishes:
+    assets/extensions/notadd/navigation: resources/mixes/administration/dist/assets/extensions/notadd/carousel
