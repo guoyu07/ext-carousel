@@ -1,5 +1,7 @@
 <?php
 
+namespace Notadd\Carousel\Handler;
+
 use Notadd\Carousel\Models\Category;
 use Notadd\Foundation\Routing\Abstracts\Handler;
 
