@@ -43,12 +43,15 @@ class DeleteCategoryHandler extends Handler
                     rmdir($complatePath);
                 }
             }
-            $groupPath = base_path('statics' . substr(strstr($group->pictures()->first()->path, '/uploads'), 0, strrpos(strstr($group->pictures()->first()->path, '/uploads'), '/')-1));
+            $groupPath = base_path('statics' . substr(strstr($complatePath, '/uploads'), 0, strrpos(strstr($complatePath, '/uploads'), '/')-1));
             if (file_exists($groupPath)) {
                 rmdir($groupPath);
             }
         }
-
+        $categoryPath = base_path('statics' . substr(strstr($groupPath, '/upload'), 0, strrpos(strstr($groupPath, '/upload'), '/')));
+        if (file_exists($categoryPath)) {
+            rmdir($categoryPath);
+        }
 
         if ($category->delete()) {
             return $this->withCode(200)->withMessage('删除分组信息成功');
