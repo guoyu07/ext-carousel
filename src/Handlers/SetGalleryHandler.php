@@ -25,7 +25,7 @@ class SetGalleryHandler extends Handler
     {
         $this->validate($this->request, [
             'category_name' => 'required',
-            'category_alias' => 'unique',
+            'category_alias' => 'nullable|unique',
         ], [
             'category_name.required' => '请输入分类名称',
             'category_alias.unique' => '分类id在数据库中已经存在，请重新设置',
