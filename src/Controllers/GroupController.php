@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: bc-033
- * Date: 17-9-29
- * Time: 下午3:36
+ * The file is part of Notadd
+ *
+ * @author: Hollydan<2642956839@qq.com>
+ * @copyright (c) 2017, notadd.com
+ * @datetime: 17-9-29 下午3:36
  */
 
 namespace Notadd\Carousel\Controller;
