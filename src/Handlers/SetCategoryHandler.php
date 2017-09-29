@@ -33,6 +33,7 @@ class SetCategoryHandler extends Handler
 
         $category = new Category();
         $category->name = $this->request->get('category_name');
+        $category->user_id = 1;
 
         if (!$this->request->get('category_alias')) {
             do {
