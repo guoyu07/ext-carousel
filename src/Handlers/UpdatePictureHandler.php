@@ -4,7 +4,7 @@
  *
  * @author: Hollydan<2642956839@qq.com>
  * @copyright (c) 2017, notadd.com
- * @datetime: 17-9-29 上午11:03
+ * @datetime: 17-9-29 上午11:13
  */
 
 namespace Notadd\Carousel\Handler;
@@ -13,7 +13,7 @@ namespace Notadd\Carousel\Handler;
 use Notadd\Carousel\Models\Picture;
 use Notadd\Foundation\Routing\Abstracts\Handler;
 
-class DeletePictureHandler extends Handler
+class UpdatePictureHandler extends Handler
 {
 
     /**
@@ -26,20 +26,18 @@ class DeletePictureHandler extends Handler
         $this->validate($this->request, [
             'picture_id' => 'required',
         ], [
-            'picture_id.required' => '请传入图片id',
+            'picture_id.required' => '请传入图片id'
         ]);
 
         $picture = Picture::find($this->request->get('picture_id'));
         if (!$picture instanceof Picture) {
             return $this->withCode(401)->withError('图片id不存在');
         }
-        $filePath = strstr($picture->path, '/uploads');
-        $complatePath = base_path('statics' . $filePath);
-        if (file_exists($complatePath)) {
-            rmdir($complatePath);
-        }
-        if ($picture->delete()) {
-            return $this->withCode(200)->withMessage('删除图片信息成功');
+        $picture->title = $this->request->get('picture_title');
+        $picture->link = $this->request->get('picture_link');
+        $picture->order = $this->request->get('picture_order');
+        if ($picture->save()) {
+            return $this->withCode(200)->withMessage('更新图片信息成功');
         }
     }
 }
