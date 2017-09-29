@@ -13,7 +13,7 @@ namespace Notadd\Carousel\Handler;
 use Notadd\Carousel\Models\Group;
 use Notadd\Foundation\Routing\Abstracts\Handler;
 
-class ShowPictureHandler extends Handler
+class ShowGroupHandler extends Handler
 {
 
     /**
