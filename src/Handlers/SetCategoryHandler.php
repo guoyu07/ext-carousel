@@ -43,6 +43,10 @@ class SetCategoryHandler extends Handler
         } else {
             $category->alias = $this->request->get('category_alias');
         }
+
+        if ($category->save()) {
+            return $this->withCode(200)->withMessage('新增分类信息成功');
+        }
     }
 
     /**
