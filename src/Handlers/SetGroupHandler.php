@@ -27,9 +27,9 @@ class SetGroupHandler extends Handler
         $this->validate($this->request, [
             'category_alias' => 'required',
             'group_name' => 'required',
-            'group_alias' => 'nullable|unique',
+            'group_alias' => 'nullable|unique:ext_carousel_groups,alias',
         ], [
-            'category_id.required' => '请传入组所属分类id',
+            'category_alias.required' => '请传入组所属分类id',
             'group_name.required' => '请输入组名',
             'group_alias.unique' => '组id已存在，请重新设置',
         ]);
@@ -50,6 +50,7 @@ class SetGroupHandler extends Handler
             $group->alias = $this->request->get('group_alias');
         }
 
+        $group->show = $this->request->get('show', true);
         $group->user_id = 1;
         $group->category_id = $category->id;
 
