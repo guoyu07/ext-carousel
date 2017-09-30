@@ -14,7 +14,7 @@ use Notadd\Carousel\Handlers\AllGroupHandler;
 use Notadd\Carousel\Handler\DeleteGroupHandler;
 use Notadd\Carousel\Handlers\SetGroupHandler;
 use Notadd\Carousel\Handler\ShowGroupHandler;
-use Notadd\Carousel\Handleru\UpdateGroupHandler;
+use Notadd\Carousel\Handlers\UpdateGroupHandler;
 use Notadd\Foundation\Routing\Abstracts\Controller;
 
 class GroupController extends Controller
