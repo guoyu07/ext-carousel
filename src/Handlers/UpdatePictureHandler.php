@@ -7,7 +7,7 @@
  * @datetime: 17-9-29 上午11:13
  */
 
-namespace Notadd\Carousel\Handler;
+namespace Notadd\Carousel\Handlers;
 
 
 use Notadd\Carousel\Models\Picture;
@@ -33,9 +33,9 @@ class UpdatePictureHandler extends Handler
         if (!$picture instanceof Picture) {
             return $this->withCode(401)->withError('图片id不存在');
         }
-        $picture->title = $this->request->get('picture_title');
-        $picture->link = $this->request->get('picture_link');
-        $picture->order = $this->request->get('picture_order');
+        $picture->title = $this->request->get('picture_title', null);
+        $picture->link = $this->request->get('picture_link', null);
+        $picture->order = $this->request->get('picture_order', 0);
         if ($picture->save()) {
             return $this->withCode(200)->withMessage('更新图片信息成功');
         }

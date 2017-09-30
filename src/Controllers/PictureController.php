@@ -11,7 +11,7 @@ namespace Notadd\Carousel\Controllers;
 
 use Notadd\Carousel\Handler\DeletePictureHandler;
 use Notadd\Carousel\Handlers\SetPictureHandler;
-use Notadd\Carousel\Handler\UpdatePictureHandler;
+use Notadd\Carousel\Handlers\UpdatePictureHandler;
 use Notadd\Foundation\Routing\Abstracts\Controller;
 
 class PictureController extends Controller
