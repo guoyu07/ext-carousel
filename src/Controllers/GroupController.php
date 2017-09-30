@@ -7,10 +7,10 @@
  * @datetime: 17-9-29 下午3:36
  */
 
-namespace Notadd\Carousel\Controller;
+namespace Notadd\Carousel\Controllers;
 
 
-use Notadd\Carousel\Handler\AllGroupHandler;
+use Notadd\Carousel\Handlers\AllGroupHandler;
 use Notadd\Carousel\Handler\DeleteGroupHandler;
 use Notadd\Carousel\Handler\SetGroupHandler;
 use Notadd\Carousel\Handler\ShowGroupHandler;

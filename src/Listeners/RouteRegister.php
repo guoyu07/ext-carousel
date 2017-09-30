@@ -10,7 +10,7 @@
 namespace Notadd\Carousel\Listeners;
 
 use Notadd\Carousel\Controllers\CategoryController;
-use Notadd\Carousel\Controller\GroupController;
+use Notadd\Carousel\Controllers\GroupController;
 use Notadd\Carousel\Controller\PictureController;
 use Notadd\Foundation\Routing\Abstracts\RouteRegister as AbstractRouteRegister;
 

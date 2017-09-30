@@ -7,10 +7,10 @@
  * @datetime: 17-9-29 上午11:29
  */
 
-namespace Notadd\Carousel\Handler;
+namespace Notadd\Carousel\Handlers;
 
 
-use Notadd\Carousel\Models\Category;
+use Notadd\Carousel\Models\Group;
 use Notadd\Foundation\Routing\Abstracts\Handler;
 
 class AllGroupHandler extends Handler
@@ -23,17 +23,8 @@ class AllGroupHandler extends Handler
      */
     protected function execute()
     {
-        $this->validate($this->request, [
-            'category_id' => 'required',
-        ], [
-            'category_id.required' => '请传入分类id',
-        ]);
-
-        $category = Category::find($this->request->get('category_id'));
-        if (!$category instanceof Category) {
-            return $this->withCode(401)->withError('分类id不存在');
-        }
-        $groups = $category->groups();
+        $perPage = $this->request->get('group_perpage', 10);
+        $groups = Group::OrderBy('created_at', 'desc')->paginate($perPage);
         return $this->withCode(200)->withData($groups)->withMessage('获取组信息成功');
 
     }

@@ -33,7 +33,7 @@ class ShowCategoryHandler extends Handler
         if (!$category instanceof Category) {
             return $this->withCode(401)->withError('分类id不存在');
         }
-        $groups = $category->groups();
+        $groups = $category->groups;
         return $this->withCode(200)->withData($groups)->withMessage('获取组信息成功');
     }
 }
