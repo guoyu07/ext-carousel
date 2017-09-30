@@ -25,7 +25,7 @@ class SetCategoryHandler extends Handler
     {
         $this->validate($this->request, [
             'category_name' => 'required',
-            'category_alias' => 'nullable|unique',
+            'category_alias' => 'nullable|unique:ext_carousel_categories,alias',
         ], [
             'category_name.required' => '请输入分类名称',
             'category_alias.unique' => '分类id已存在，请重新设置',
