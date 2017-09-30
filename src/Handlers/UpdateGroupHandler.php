@@ -36,7 +36,7 @@ class UpdateGroupHandler extends Handler
             return $this->withCode(401)->withError('组id不存在');
         }
         $group->name = $this->request->get('group_name');
-        $group->status = $this->request->get('group_status');
+        $group->show = $this->request->get('group_show', true);
         if ($group->save()) {
             return $this->withCode(200)->withMessage('更新组信息成功');
         }
