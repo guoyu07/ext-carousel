@@ -34,7 +34,7 @@ class ShowGroupHandler extends Handler
         if (!$group instanceof Group) {
             return $this->withCode(401)->withError('组id不存在');
         }
-        $pictures = $group->pictures();
+        $pictures = $group->pictures;
         return $this->withCode(200)->withData($pictures)->withMessage('获取数据成功');
     }
 }

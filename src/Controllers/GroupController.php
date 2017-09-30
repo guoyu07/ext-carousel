@@ -11,7 +11,7 @@ namespace Notadd\Carousel\Controllers;
 
 
 use Notadd\Carousel\Handlers\AllGroupHandler;
-use Notadd\Carousel\Handler\DeleteGroupHandler;
+use Notadd\Carousel\Handlers\DeleteGroupHandler;
 use Notadd\Carousel\Handlers\SetGroupHandler;
 use Notadd\Carousel\Handlers\ShowGroupHandler;
 use Notadd\Carousel\Handlers\UpdateGroupHandler;
