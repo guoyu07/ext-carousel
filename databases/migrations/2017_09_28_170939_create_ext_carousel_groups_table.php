@@ -25,7 +25,7 @@ class CreateExtCarouselGroupsTable extends Migration
             $table->string('name')->comment('组名');
             $table->integer('alias')->comment('组id');
             $table->boolean('show')->default(true)->comment('是否显示，默认显示');
-            $table->integer(user_id)->comment('新增组的用户id');
+            $table->integer('user_id')->comment('新增组的用户id');
             $table->integer('category_id')->comment('组所属分类id');
             $table->foreign('category_id')->references('id')->on('ext_carousel_categories')->onDelete('cascade');
             $table->softDeletes();

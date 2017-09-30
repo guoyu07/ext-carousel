@@ -28,7 +28,7 @@ class CreateExtCarouselPicturesTable extends Migration
             $table->string('link')->comment('图片跳转链接');
             $table->integer('order')->default(0)->comment('图片排序');
             $table->integer('user_id')->comment('图片上传用户id');
-            $table->string('group_id')->comment('图片所属组id');
+            $table->integer('group_id')->comment('图片所属组id');
             $table->foreign('group_id')->references('id')->on('ext_carousel_groups')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
