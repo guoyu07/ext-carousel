@@ -7,7 +7,7 @@
  * @datetime: 17-9-29 下午3:25
  */
 
-namespace Notadd\Carousel\Handler;
+namespace Notadd\Carousel\Handlers;
 
 
 use Notadd\Carousel\Models\Group;
