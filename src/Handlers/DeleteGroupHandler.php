@@ -43,8 +43,13 @@ class DeleteGroupHandler extends Handler
                     unlink($complatePath);
                 }
             }
-            $groupPath = substr($complatePath, 0, strrpos($complatePath, '/'));
-            rmdir($groupPath);
+        }
+
+        if (file_exists(base_path('statics/uploads/' . $group->category_id))) {
+            if (file_exists(base_path('statics/uploads/' . $group->category_id . '/' . $group->id))) {
+                $groupPath = base_path('statics/uploads/' . $group->category_id . '/' . $group->id);
+                rmdir($groupPath);
+            }
         }
 
         if ($group->delete()) {
