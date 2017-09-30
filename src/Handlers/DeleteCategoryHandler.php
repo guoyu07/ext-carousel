@@ -36,17 +36,19 @@ class DeleteCategoryHandler extends Handler
         }
 
         //删除分类下面的所有分组信息
-        if ($category->groups) {
+        if ($category->groups->count() > 0) {
             foreach ($category->groups as $group) {
-                foreach ($group->pictures as $picture) {
-                    $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
-                    if (file_exists($complatePath)) {
-                        rmdir($complatePath);
+                if ($group->pictures->count() > 0) {
+                    foreach ($group->pictures as $picture) {
+                        $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
+                        if (file_exists($complatePath)) {
+                            unlink($complatePath);
+                        }
                     }
-                }
-                $groupPath = base_path('statics' . substr(strstr($complatePath, '/uploads'), 0, strrpos(strstr($complatePath, '/uploads'), '/')-1));
-                if (file_exists($groupPath)) {
-                    rmdir($groupPath);
+                    $groupPath = base_path('statics' . substr(strstr($complatePath, '/uploads'), 0, strrpos(strstr($complatePath, '/uploads'), '/')));
+                    if (file_exists($groupPath)) {
+                        rmdir($groupPath);
+                    }
                 }
             }
             $categoryPath = base_path('statics' . substr(strstr($groupPath, '/upload'), 0, strrpos(strstr($groupPath, '/upload'), '/')));
