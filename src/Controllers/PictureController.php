@@ -7,10 +7,10 @@
  * @datetime: 17-9-29 下午3:27
  */
 
-namespace Notadd\Carousel\Controller;
+namespace Notadd\Carousel\Controllers;
 
 use Notadd\Carousel\Handler\DeletePictureHandler;
-use Notadd\Carousel\Handler\SetPictureHandler;
+use Notadd\Carousel\Handlers\SetPictureHandler;
 use Notadd\Carousel\Handler\UpdatePictureHandler;
 use Notadd\Foundation\Routing\Abstracts\Controller;
 

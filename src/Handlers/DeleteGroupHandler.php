@@ -35,7 +35,7 @@ class DeleteGroupHandler extends Handler
         }
 
         //先删除组下面的所有图片
-        $pictures = $group->pictures();
+        $pictures = $group->pictures;
         foreach ($pictures as $picture) {
             $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
             if (file_exists($complatePath)) {

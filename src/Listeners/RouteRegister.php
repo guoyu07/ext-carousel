@@ -11,7 +11,7 @@ namespace Notadd\Carousel\Listeners;
 
 use Notadd\Carousel\Controllers\CategoryController;
 use Notadd\Carousel\Controllers\GroupController;
-use Notadd\Carousel\Controller\PictureController;
+use Notadd\Carousel\Controllers\PictureController;
 use Notadd\Foundation\Routing\Abstracts\RouteRegister as AbstractRouteRegister;
 
 class RouteRegister extends AbstractRouteRegister
