@@ -9,7 +9,7 @@
 
 namespace Notadd\Carousel\Controllers;
 
-use Notadd\Carousel\Handler\DeletePictureHandler;
+use Notadd\Carousel\Handlers\DeletePictureHandler;
 use Notadd\Carousel\Handlers\SetPictureHandler;
 use Notadd\Carousel\Handlers\UpdatePictureHandler;
 use Notadd\Foundation\Routing\Abstracts\Controller;
