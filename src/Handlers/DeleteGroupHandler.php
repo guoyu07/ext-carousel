@@ -36,14 +36,16 @@ class DeleteGroupHandler extends Handler
 
         //先删除组下面的所有图片
         $pictures = $group->pictures;
-        foreach ($pictures as $picture) {
-            $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
-            if (file_exists($complatePath)) {
-                rmdir($complatePath);
+        if ($pictures->count() > 0) {
+            foreach ($pictures as $picture) {
+                $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
+                if (file_exists($complatePath)) {
+                    unlink($complatePath);
+                }
             }
+            $groupPath = substr($complatePath, 0, strrpos($complatePath, '/'));
+            rmdir($groupPath);
         }
-        $groupPath = substr($pictures->first()->path, 0, strrpos($pictures->first()->path, '/'));
-        rmdir($groupPath);
 
         if ($group->delete()) {
             return $this->withCode(200)->withMessage('删除组信息成功');
