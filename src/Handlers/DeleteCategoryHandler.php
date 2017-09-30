@@ -36,21 +36,23 @@ class DeleteCategoryHandler extends Handler
         }
 
         //删除分类下面的所有分组信息
-        foreach ($category->groups() as $group) {
-            foreach ($group->pictures() as $picture) {
-                $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
-                if (file_exists($complatePath)) {
-                    rmdir($complatePath);
+        if ($category->groups) {
+            foreach ($category->groups as $group) {
+                foreach ($group->pictures as $picture) {
+                    $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
+                    if (file_exists($complatePath)) {
+                        rmdir($complatePath);
+                    }
+                }
+                $groupPath = base_path('statics' . substr(strstr($complatePath, '/uploads'), 0, strrpos(strstr($complatePath, '/uploads'), '/')-1));
+                if (file_exists($groupPath)) {
+                    rmdir($groupPath);
                 }
             }
-            $groupPath = base_path('statics' . substr(strstr($complatePath, '/uploads'), 0, strrpos(strstr($complatePath, '/uploads'), '/')-1));
-            if (file_exists($groupPath)) {
-                rmdir($groupPath);
+            $categoryPath = base_path('statics' . substr(strstr($groupPath, '/upload'), 0, strrpos(strstr($groupPath, '/upload'), '/')));
+            if (file_exists($categoryPath)) {
+                rmdir($categoryPath);
             }
-        }
-        $categoryPath = base_path('statics' . substr(strstr($groupPath, '/upload'), 0, strrpos(strstr($groupPath, '/upload'), '/')));
-        if (file_exists($categoryPath)) {
-            rmdir($categoryPath);
         }
 
         if ($category->delete()) {
