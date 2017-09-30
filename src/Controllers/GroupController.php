@@ -12,7 +12,7 @@ namespace Notadd\Carousel\Controllers;
 
 use Notadd\Carousel\Handlers\AllGroupHandler;
 use Notadd\Carousel\Handler\DeleteGroupHandler;
-use Notadd\Carousel\Handler\SetGroupHandler;
+use Notadd\Carousel\Handlers\SetGroupHandler;
 use Notadd\Carousel\Handler\ShowGroupHandler;
 use Notadd\Carousel\Handleru\UpdateGroupHandler;
 use Notadd\Foundation\Routing\Abstracts\Controller;
