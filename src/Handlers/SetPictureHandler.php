@@ -38,11 +38,10 @@ class SetPictureHandler extends Handler
         if (!$group instanceof Group) {
             return $this->withCode(401)->withError('组id不存在');
         }
-        $title = $this->request->get('picture_title');
-        $link = $this->request->get('picture_link');
+        $title = $this->request->get('picture_title', null);
+        $link = $this->request->get('picture_link', null);
         $order = $this->request->get('picture_order', 0);
         $img = $this->request->file('file');
-        $size = getimagesize($img);
 
         $hash = hash_file('md5', $img->getPathname());
         $random = random_int(0, 9999999);
@@ -68,6 +67,8 @@ class SetPictureHandler extends Handler
         $picture->user_id = 1;
         $picture->group_id = $group->id;
 
-        return $this->withCode(200)->withMessage('图片上传成功');
+        if ($picture->save()) {
+            return $this->withCode(200)->withMessage('图片上传成功');
+        }
     }
 }
