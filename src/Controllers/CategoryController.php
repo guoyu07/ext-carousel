@@ -14,7 +14,7 @@ use Notadd\Carousel\Handlers\AllCategoryHandler;
 use Notadd\Carousel\Handler\DeleteCategoryHandler;
 use Notadd\Carousel\Handlers\SetCategoryHandler;
 use Notadd\Carousel\Handler\ShowCategoryHandler;
-use Notadd\Carousel\Handler\UpdateCategoryHandler;
+use Notadd\Carousel\Handlers\UpdateCategoryHandler;
 use Notadd\Foundation\Routing\Abstracts\Controller;
 
 class CategoryController extends Controller
