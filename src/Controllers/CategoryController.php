@@ -11,7 +11,7 @@ namespace Notadd\Carousel\Controllers;
 
 
 use Notadd\Carousel\Handlers\AllCategoryHandler;
-use Notadd\Carousel\Handler\DeleteCategoryHandler;
+use Notadd\Carousel\Handlers\DeleteCategoryHandler;
 use Notadd\Carousel\Handlers\SetCategoryHandler;
 use Notadd\Carousel\Handler\ShowCategoryHandler;
 use Notadd\Carousel\Handlers\UpdateCategoryHandler;
