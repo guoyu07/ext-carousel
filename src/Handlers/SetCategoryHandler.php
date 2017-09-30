@@ -7,7 +7,7 @@
  * @datetime: 17-9-29 下午2:28
  */
 
-namespace Notadd\Carousel\Handler;
+namespace Notadd\Carousel\Handlers;
 
 
 use Notadd\Carousel\Models\Category;
