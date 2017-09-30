@@ -36,7 +36,7 @@ class DeletePictureHandler extends Handler
         $filePath = strstr($picture->path, '/uploads');
         $complatePath = base_path('statics' . $filePath);
         if (file_exists($complatePath)) {
-            rmdir($complatePath);
+            unlink($complatePath);
         }
         if ($picture->delete()) {
             return $this->withCode(200)->withMessage('删除图片信息成功');
