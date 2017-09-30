@@ -1,14 +1,15 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: bc-033
- * Date: 17-9-29
- * Time: 下午3:49
+ * The file is part of Notadd
+ *
+ * @author: Hollydan<2642956839@qq.com>
+ * @copyright (c) 2017, notadd.com
+ * @datetime: 17-9-29 下午3:49
  */
 
-namespace Notadd\Carious\Listener;
+namespace Notadd\Carousel\Listeners;
 
-use Notadd\Carousel\Controller\CategoryController;
+use Notadd\Carousel\Controllers\CategoryController;
 use Notadd\Carousel\Controller\GroupController;
 use Notadd\Carousel\Controller\PictureController;
 use Notadd\Foundation\Routing\Abstracts\RouteRegister as AbstractRouteRegister;

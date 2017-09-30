@@ -1,6 +1,6 @@
 <?php
 
-namespace Notadd\Carousel\Handler;
+namespace Notadd\Carousel\Handlers;
 
 use Notadd\Carousel\Models\Category;
 use Notadd\Foundation\Routing\Abstracts\Handler;
@@ -24,7 +24,7 @@ class AllCategoryHandler extends Handler
     protected function execute()
     {
 
-        $perPage = $this->request->get(category_perpage, 10);
+        $perPage = $this->request->get('category_perpage', 10);
         $categories = Category::OrderBy('created_at', 'desc')->paginate($perPage);
         return $this->withCode(200)->withData($categories)->withMessage('获取数据成功');
     }

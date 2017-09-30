@@ -42,6 +42,7 @@ class SetPictureHandler extends Handler
         $link = $this->request->get('picture_link');
         $order = $this->request->get('picture_order', 0);
         $img = $this->request->file('file');
+        $size = getimagesize($img);
 
         $hash = hash_file('md5', $img->getPathname());
         $random = random_int(0, 9999999);

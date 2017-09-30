@@ -7,10 +7,10 @@
  * @datetime: 17-9-29 下午3:44
  */
 
-namespace Notadd\Carousel\Controller;
+namespace Notadd\Carousel\Controllers;
 
 
-use Notadd\Carousel\Handler\AllCategoryHandler;
+use Notadd\Carousel\Handlers\AllCategoryHandler;
 use Notadd\Carousel\Handler\DeleteCategoryHandler;
 use Notadd\Carousel\Handler\SetCategoryHandler;
 use Notadd\Carousel\Handler\ShowCategoryHandler;
