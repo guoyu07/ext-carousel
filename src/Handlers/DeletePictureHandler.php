@@ -9,12 +9,26 @@
 
 namespace Notadd\Carousel\Handlers;
 
-
+use Illuminate\Container\Container;
+use Illuminate\Filesystem\Filesystem;
 use Notadd\Carousel\Models\Picture;
 use Notadd\Foundation\Routing\Abstracts\Handler;
 
 class DeletePictureHandler extends Handler
 {
+
+    protected $file;
+
+    /**
+     * DeletePictureHandler constructor.
+     * @param Container $container
+     * @param Filesystem $filesystem
+     */
+    public function __construct(Container $container, Filesystem $filesystem)
+    {
+        parent::__construct($container);
+        $this->file = $filesystem;
+    }
 
     /**
      * Execute Handler.
@@ -35,8 +49,8 @@ class DeletePictureHandler extends Handler
         }
         $filePath = strstr($picture->path, '/uploads');
         $complatePath = base_path('statics' . $filePath);
-        if (file_exists($complatePath)) {
-            unlink($complatePath);
+        if ($this->file->exists($complatePath)) {
+            $this->file->delete($complatePath);
         }
         if ($picture->delete()) {
             return $this->withCode(200)->withMessage('删除图片信息成功');
