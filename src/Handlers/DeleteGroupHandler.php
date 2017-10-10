@@ -45,9 +45,9 @@ class DeleteGroupHandler extends Handler
             }
         }
 
-        if (file_exists(base_path('statics/uploads/' . $group->category_id))) {
-            if (file_exists(base_path('statics/uploads/' . $group->category_id . '/' . $group->id))) {
-                $groupPath = base_path('statics/uploads/' . $group->category_id . '/' . $group->id);
+        if (file_exists(base_path('statics/uploads/carousel/' . $group->category_id))) {
+            if (file_exists(base_path('statics/uploads/carousel/' . $group->category_id . '/' . $group->id))) {
+                $groupPath = base_path('statics/uploads/carousel/' . $group->category_id . '/' . $group->id);
                 rmdir($groupPath);
             }
         }
