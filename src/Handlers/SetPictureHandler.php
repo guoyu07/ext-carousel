@@ -55,7 +55,7 @@ class SetPictureHandler extends Handler
             $img->move($directory, $fileName);
         }
 
-        $path = url('uploads/' . $categoryPath . '/' . $groupPath . '/' . $fileName);       //保存到数据库的路径
+        $path = url('uploads/carousel/' . $categoryPath . '/' . $groupPath . '/' . $fileName);       //保存到数据库的路径
 
         //图片信息存到数据库
         $picture = new Picture;
