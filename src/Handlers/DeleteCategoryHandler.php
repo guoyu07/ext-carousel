@@ -46,16 +46,16 @@ class DeleteCategoryHandler extends Handler
                         }
                     }
                 }
-                if (file_exists(base_path('statics/uploads/' . $category->id))) {
-                    if (file_exists(base_path('statics/uploads/' . $category->id . '/' . $group->id))) {
-                        $groupPath = base_path('statics/uploads/' . $category->id . '/' . $group->id);
+                if (file_exists(base_path('statics/uploads/carousel/' . $category->id))) {
+                    if (file_exists(base_path('statics/uploads/carousel/' . $category->id . '/' . $group->id))) {
+                        $groupPath = base_path('statics/uploads/carousel/' . $category->id . '/' . $group->id);
                         rmdir($groupPath);
                     }
                 }
             }
         }
-        if (file_exists(base_path('statics/uploads/' . $category->id))) {
-            $categoryPath = base_path('statics/uploads/' . $category->id);
+        if (file_exists(base_path('statics/uploads/carousel/' . $category->id))) {
+            $categoryPath = base_path('statics/uploads/carousel/' . $category->id);
             rmdir($categoryPath);
         }
 
