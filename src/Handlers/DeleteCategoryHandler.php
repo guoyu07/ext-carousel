@@ -2,6 +2,8 @@
 
 namespace Notadd\Carousel\Handlers;
 
+use Illuminate\Container\Container;
+use Illuminate\Filesystem\Filesystem;
 use Notadd\Carousel\Models\Category;
 use Notadd\Foundation\Routing\Abstracts\Handler;
 
@@ -15,6 +17,14 @@ use Notadd\Foundation\Routing\Abstracts\Handler;
 
 class DeleteCategoryHandler extends Handler
 {
+
+    protected $file;
+
+    public function __construct(Container $container, Filesystem $filesystem)
+    {
+        parent::__construct($container);
+        $this->file = $filesystem;
+    }
 
     /**
      * Execute Handler.
@@ -35,28 +45,11 @@ class DeleteCategoryHandler extends Handler
             return $this->withCode(401)->withError('请重新确认分组id');
         }
 
-        //删除分类下面的所有分组信息
-        if ($category->groups->count() > 0) {
-            foreach ($category->groups as $group) {
-                if ($group->pictures->count() > 0) {
-                    foreach ($group->pictures as $picture) {
-                        $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
-                        if (file_exists($complatePath)) {
-                            unlink($complatePath);
-                        }
-                    }
-                }
-                if (file_exists(base_path('statics/uploads/carousel/' . $category->id))) {
-                    if (file_exists(base_path('statics/uploads/carousel/' . $category->id . '/' . $group->id))) {
-                        $groupPath = base_path('statics/uploads/carousel/' . $category->id . '/' . $group->id);
-                        rmdir($groupPath);
-                    }
-                }
-            }
-        }
-        if (file_exists(base_path('statics/uploads/carousel/' . $category->id))) {
-            $categoryPath = base_path('statics/uploads/carousel/' . $category->id);
-            rmdir($categoryPath);
+        //删除分类下面的所有图片文件
+        $subPath = 'statics/uploads/carousel/';
+        if ($this->file->exists(base_path($subPath . $category->id))) {
+            $categoryPath = base_path($subPath . $category->id);
+            $this->file->deleteDirectory($categoryPath);
         }
 
         if ($category->delete()) {
