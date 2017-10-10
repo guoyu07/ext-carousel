@@ -10,11 +10,26 @@
 namespace Notadd\Carousel\Handlers;
 
 
+use Illuminate\Container\Container;
+use Illuminate\Filesystem\Filesystem;
 use Notadd\Carousel\Models\Group;
 use Notadd\Foundation\Routing\Abstracts\Handler;
 
 class DeleteGroupHandler extends Handler
 {
+
+    protected $file;
+
+    /**
+     * DeleteGroupHandler constructor.
+     * @param Container $container
+     * @param Filesystem $filesystem
+     */
+    public function __construct(Container $container, Filesystem $filesystem)
+    {
+        parent::__construct($container);
+        $this->file = $filesystem;
+    }
 
     /**
      * Execute Handler.
@@ -34,21 +49,11 @@ class DeleteGroupHandler extends Handler
             return $this->withCode(401)->withError('组id不存在');
         }
 
-        //先删除组下面的所有图片
-        $pictures = $group->pictures;
-        if ($pictures->count() > 0) {
-            foreach ($pictures as $picture) {
-                $complatePath = base_path('statics' . strstr($picture->path, '/uploads'));
-                if (file_exists($complatePath)) {
-                    unlink($complatePath);
-                }
-            }
-        }
-
-        if (file_exists(base_path('statics/uploads/carousel/' . $group->category_id))) {
-            if (file_exists(base_path('statics/uploads/carousel/' . $group->category_id . '/' . $group->id))) {
+        //删除组图文件夹
+        if ($this->file->exists(base_path('statics/uploads/carousel/' . $group->category_id))) {
+            if ($this->file->exists(base_path('statics/uploads/carousel/' . $group->category_id . '/' . $group->id))) {
                 $groupPath = base_path('statics/uploads/carousel/' . $group->category_id . '/' . $group->id);
-                rmdir($groupPath);
+                $this->file->deleteDirectory($groupPath);
             }
         }
 
