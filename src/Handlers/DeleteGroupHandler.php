@@ -50,9 +50,10 @@ class DeleteGroupHandler extends Handler
         }
 
         //删除组图文件夹
-        if ($this->file->exists(base_path('statics/uploads/carousel/' . $group->category_id))) {
-            if ($this->file->exists(base_path('statics/uploads/carousel/' . $group->category_id . '/' . $group->id))) {
-                $groupPath = base_path('statics/uploads/carousel/' . $group->category_id . '/' . $group->id);
+        $subPath = 'statics/uploads/carousel/';
+        if ($this->file->exists(base_path($subPath . $group->category_id))) {
+            if ($this->file->exists(base_path($subPath . $group->category_id . '/' . $group->id))) {
+                $groupPath = base_path($subPath . $group->category_id . '/' . $group->id);
                 $this->file->deleteDirectory($groupPath);
             }
         }
