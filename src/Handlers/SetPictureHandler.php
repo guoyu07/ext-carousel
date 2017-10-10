@@ -45,11 +45,11 @@ class SetPictureHandler extends Handler
 
         $hash = hash_file('md5', $img->getPathname());
         $random = random_int(0, 9999999);
-        $fileName = $hash . $random . '.' . $img->getClientOriginalExtension();     //上传后的文件名
+        $fileName = $hash . $random . '.' . $img->getClientOriginalExtension();     //上传后的文件名s
 
         $groupPath = $group->id;
         $categoryPath = $group->category_id;
-        $directory = base_path('statics/uploads/' . $categoryPath . '/' . $groupPath);      //上传文件路径
+        $directory = base_path('statics/uploads/carousel/' . $categoryPath . '/' . $groupPath);      //上传文件路径
 
         if (!file_exists($directory. '/' . $fileName)) {
             $img->move($directory, $fileName);
