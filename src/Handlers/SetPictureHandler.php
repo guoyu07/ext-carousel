@@ -44,7 +44,7 @@ class SetPictureHandler extends Handler
         $img = $this->request->file('file');
 
         $hash = hash_file('md5', $img->getPathname());
-        $random = random_int(0, 9999999);
+        $random = str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_BOTH);
         $fileName = $hash . $random . '.' . $img->getClientOriginalExtension();     //上传后的文件名s
 
         $groupPath = $group->id;
