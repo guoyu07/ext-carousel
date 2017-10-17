@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: bc-033
- * Date: 17-10-16
- * Time: 下午6:02
+ * The file is part of Notadd
+ *
+ * @author: Hollydan<2642956839@qq.com>
+ * @copyright (c) 2017, notadd.com
+ * @datetime: 17-10-16 下午6:02
  */
 
 namespace Tests\Features;
