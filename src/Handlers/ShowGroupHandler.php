@@ -30,7 +30,7 @@ class ShowGroupHandler extends Handler
         ]);
 
         $groupAlias = $this->request->get('group_alias');
-        $group = Group::where('alias', $groupAlias)->first();
+        $group = Group::query()->where('alias', $groupAlias)->first();
         if (!$group instanceof Group) {
             return $this->withCode(401)->withError('组id不存在');
         }

@@ -39,7 +39,7 @@ class DeleteCategoryHandler extends Handler
             'category_alias.required' => '请传入分类id',
         ]);
 
-        $category = Category::where('alias', $this->request->get('category_alias'))->first();
+        $category = Category::query()->where('alias', $this->request->get('category_alias'))->first();
 
         if (!$category instanceof Category) {
             return $this->withCode(401)->withError('请重新确认分组id');

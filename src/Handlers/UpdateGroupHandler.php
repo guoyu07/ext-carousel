@@ -31,7 +31,7 @@ class UpdateGroupHandler extends Handler
             'group_name.required' => '请输入组图名称',
         ]);
 
-        $group = Group::where('alias', $this->request->get('group_alias'))->first();
+        $group = Group::query()->where('alias', $this->request->get('group_alias'))->first();
         if (!$group instanceof Group) {
             return $this->withCode(401)->withError('组id不存在');
         }

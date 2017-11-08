@@ -34,7 +34,7 @@ class SetGroupHandler extends Handler
             'group_alias.unique' => '组id已存在，请重新设置',
         ]);
 
-        $category = Category::where('alias', $this->request->get('category_alias'))->first();
+        $category = Category::query()->where('alias', $this->request->get('category_alias'))->first();
         if (!$category instanceof Category) {
             return $this->withCode(401)->withError('分类id不存在');
         }
@@ -66,7 +66,7 @@ class SetGroupHandler extends Handler
      */
     private function verify($verify)
     {
-        $group = Group::where('alias', $verify)->first();
+        $group = Group::query()->where('alias', $verify)->first();
         if ($group instanceof Group) {
             return true;
         } else {

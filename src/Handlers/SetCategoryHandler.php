@@ -56,7 +56,7 @@ class SetCategoryHandler extends Handler
      */
     private function verify($verify)
     {
-        $category = Category::where('alias', $verify)->first();
+        $category = Category::query()->where('alias', $verify)->first();
         if ($category instanceof Category) {
             return true;
         } else {

@@ -31,7 +31,7 @@ class UpdateCategoryHandler extends Handler
             'category_name.required' => '请输入分类名称',
         ]);
 
-        $category = Category::where('alias', $this->request->get('category_alias'))->first();
+        $category = Category::query()->where('alias', $this->request->get('category_alias'))->first();
         if (!$category instanceof Category) {
             return $this->withCode(401)->withError('分类id不存在');
         }

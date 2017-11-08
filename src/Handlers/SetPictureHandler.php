@@ -34,7 +34,7 @@ class SetPictureHandler extends Handler
         ]);
 
         $alias = $this->request->get('group_alias');
-        $group = Group::where('alias', $alias)->first();
+        $group = Group::query()->where('alias', $alias)->first();
         if (!$group instanceof Group) {
             return $this->withCode(401)->withError('组id不存在');
         }
