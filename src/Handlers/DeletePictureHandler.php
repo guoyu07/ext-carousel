@@ -48,7 +48,7 @@ class DeletePictureHandler extends Handler
             return $this->withCode(401)->withError('图片id不存在');
         }
         $filePath = strstr($picture->path, '/uploads');
-        $complatePath = base_path('statics' . $filePath);
+        $complatePath = base_path('public' . $filePath);
         if ($this->file->exists($complatePath)) {
             $this->file->delete($complatePath);
         }

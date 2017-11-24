@@ -49,7 +49,7 @@ class SetPictureHandler extends Handler
 
         $groupPath = $group->id;
         $categoryPath = $group->category_id;
-        $directory = base_path('statics/uploads/carousel/' . $categoryPath . '/' . $groupPath);      //上传文件路径
+        $directory = base_path('public/uploads/carousel/' . $categoryPath . '/' . $groupPath);      //上传文件路径
 
         if (!file_exists($directory. '/' . $fileName)) {
             $img->move($directory, $fileName);

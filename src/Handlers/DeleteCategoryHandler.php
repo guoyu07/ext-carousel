@@ -46,7 +46,7 @@ class DeleteCategoryHandler extends Handler
         }
 
         //删除分类下面的所有图片文件
-        $subPath = 'statics/uploads/carousel/';
+        $subPath = 'public/uploads/carousel/';
         if ($this->file->exists(base_path($subPath . $category->id))) {
             $categoryPath = base_path($subPath . $category->id);
             $this->file->deleteDirectory($categoryPath);
